@@ -1,27 +1,10 @@
-import React, {useContext, useEffect, useRef, useState} from 'react';
-import logo from '../../logo.svg';
+import React, {useState} from 'react';
 import 'antd/dist/antd.dark.css';
 import './app.scss';
 
 
-import {
-    Button,
-    Cascader,
-    Col,
-    DatePicker,
-    Form,
-    Input,
-    InputNumber,
-    List,
-    PageHeader,
-    Radio,
-    Select,
-    Switch,
-    TreeSelect,
-    Typography
-} from 'antd';
+import {Button, Cascader, Col, Form, InputNumber, List, PageHeader, Radio, Typography} from 'antd';
 import {components} from "../../components";
-import {calculate} from "../../calculate";
 import {Utils} from "../../Utils";
 import ClothesService, {CustomClothesMap} from "../../services/ClothesService";
 import Title from "antd/es/typography/Title";
@@ -68,6 +51,7 @@ function App() {
             }
 
             await ClothesService.instance.addFromFiles(files, e.altKey);
+            console.log(ClothesService.instance.customDlcs);
         } finally {
             setLoading(false);
         }
@@ -97,6 +81,7 @@ function App() {
                     </Form.Item>
                     <Form.Item label="Component" name="component">
                         <Cascader
+                            allowClear={false}
                             options={components}
                         />
                     </Form.Item>
@@ -109,7 +94,7 @@ function App() {
                     Relative drawable: <code>{id}</code>
                 </Col>
                 <Col xs={{offset: 1, span: 22}} lg={{offset: 5, span: 12}}>
-                    Dlc name: <code>{dlc ?? 'INVALID'}</code>
+                    Dlc name: <code>{dlc != null ? `'${dlc}'` : 'INVALID'}</code>
                 </Col>
                 <Col xs={{offset: 1, span: 22}} lg={{offset: 5, span: 12}}>
                     Dlc hash: <code>{dlc == null ? 'INVALID' : Utils.hash(dlc)}</code>
