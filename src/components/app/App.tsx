@@ -159,14 +159,17 @@ function App() {
                         You will receive a JSON file with converted data:
                         <br/>
                         <code>[&#123; "type": "prop", "gender": true, "component": 1, "drawable": 1, "dlc": "Male_freemode_hipster",
-                            "dlcHash": 3258215027 &#125;, &#123; "type": "component", "gender": true, "component": 11, "drawable": 0, "dlc":
-                            "Male_freemode_independence", "dlcHash": 1656979112 &#125;]</code>
+                            "dlcHash": 3058418940 &#125;, &#123; "type": "component", "gender": true, "component": 11, "drawable": 0, "dlc":
+                            "Male_freemode_independence", "dlcHash": 2899535878 &#125;]</code>
                     </Typography.Text>
                 </Col>
                 <Col xs={{offset: 1, span: 22}} lg={{offset: 5, span: 12}}>
                     <br/>
                     <br/>
                     <Typography.Text>Made with &#x2764;&#xFE0F; by <a href="https://github.com/zziger">zziger</a></Typography.Text>
+                    <br/>
+                    <br/>
+                    <Typography.Text><a href="https://github.com/zziger/gta-clothes-id-converter">Source on GitHub</a></Typography.Text>
                 </Col>
             </div>
         </DragAndDrop>

@@ -2,14 +2,19 @@ import {useState} from "react";
 
 export namespace Utils {
     export function hash(key: string): number {
-        let keyLowered = key.toLowerCase();
-        let length = keyLowered.length;
+        const keyLowered = key.toLowerCase();
+        const length = keyLowered.length;
         let hash, i;
-        for (hash = i = 0; i < length; i++) {
+
+        for (hash = i = 0; i < length; i++){
             hash += keyLowered.charCodeAt(i);
             hash += (hash << 10);
-            hash ^= (hash >>> 6)
+            hash ^= (hash >>> 6);
         }
+
+        hash += (hash << 3);
+        hash ^= (hash >>> 11);
+        hash += (hash << 15);
 
         return hash >>> 0;
     }
